@@ -34,7 +34,7 @@
                             {{ $paciente->nome }}
                         </h3>
                         <p class="text-gray-600 text-sm">
-                            Data de nascimento: {{ \Carbon\Carbon::parse($paciente->data_nascimento)->format('d/m/Y') }}
+                            <strong>Data de nascimento:</strong> {{ \Carbon\Carbon::parse($paciente->data_nascimento)->format('d/m/Y') }}
                         </p>
                     </div>
 
