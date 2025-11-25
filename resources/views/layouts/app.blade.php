@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -14,9 +14,34 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Alpine.js (Somente se não tiver ainda) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="font-sans antialiased">
+
+    {{-- TOAST GLOBAL --}}
+    <div x-data="{ show: false, message: '' }"
+        x-init="
+            @if(session('success'))
+                message = '{{ session('success') }}';
+                show = true;
+                setTimeout(() => show = false, 3000);
+            @endif
+
+            @if(session('error'))
+                message = '{{ session('error') }}';
+                show = true;
+                setTimeout(() => show = false, 3000);
+            @endif
+         "
+        x-show="show"
+        x-transition
+        class="fixed top-4 right-4 z-50 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg">
+        <span x-text="message"></span>
+    </div>
+    {{-- FIM TOAST --}}
 
     <div class="min-h-screen flex">
 

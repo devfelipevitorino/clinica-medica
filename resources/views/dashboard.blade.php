@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl text-gray-900 leading-tight">
-            Visão geral 
+            Visão geral
         </h2>
     </x-slot>
 
@@ -14,8 +14,8 @@
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Total de Pacientes</p>
-                    <p class="text-3xl font-semibold text-gray-900 mt-1">1.234</p>
-                    <p class="text-sm text-green-600 mt-1">+12% vs mês anterior</p>
+                    <p class="text-3xl font-semibold text-gray-900 mt-1">{{ count($pacientes) }}</p>
+                    <p class="text-sm text-gray-500 mt-1">0% vs mês anterior</p>
                 </div>
 
                 <div class="bg-blue-500 w-14 h-14 rounded-xl flex items-center justify-center">
@@ -33,8 +33,8 @@
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Consultas Hoje</p>
-                    <p class="text-3xl font-semibold text-gray-900 mt-1">28</p>
-                    <p class="text-sm text-green-600 mt-1">+5% vs mês anterior</p>
+                    <p class="text-3xl font-semibold text-gray-900 mt-1">0</p>
+                    <p class="text-sm text-gray-500 mt-1">0% vs mês anterior</p>
                 </div>
 
                 <div class="bg-green-500 w-14 h-14 rounded-xl flex items-center justify-center">
@@ -52,7 +52,7 @@
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Em Atendimento</p>
-                    <p class="text-3xl font-semibold text-gray-900 mt-1">8</p>
+                    <p class="text-3xl font-semibold text-gray-900 mt-1">0</p>
                     <p class="text-sm text-gray-500 mt-1">0% vs mês anterior</p>
                 </div>
 
@@ -70,8 +70,8 @@
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Taxa de Comparecimento</p>
-                    <p class="text-3xl font-semibold text-gray-900 mt-1">94%</p>
-                    <p class="text-sm text-green-600 mt-1">+2% vs mês anterior</p>
+                    <p class="text-3xl font-semibold text-gray-900 mt-1">0%</p>
+                    <p class="text-sm text-gray-500 mt-1">0% vs mês anterior</p>
                 </div>
 
                 <div class="bg-purple-500 w-14 h-14 rounded-xl flex items-center justify-center">
