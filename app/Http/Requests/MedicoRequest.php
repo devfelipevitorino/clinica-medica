@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class MedicoRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class MedicoRequest extends FormRequest
 
     public function rules(): array
     {
-        $id = $this->route('medico');
+        $id = $this->route('medicos') ?? $this->route('id');
 
         return [
             'nome' => 'required|string|max:255',
@@ -22,13 +23,13 @@ class MedicoRequest extends FormRequest
                 'required',
                 'string',
                 'max:20',
-                'unique:medicos,crm,' . $id,
+                Rule::unique('medicos', 'crm')->ignore($id),
             ],
 
             'email' => [
                 'required',
                 'email',
-                'unique:medicos,email,' . $id,
+                Rule::unique('medicos', 'email')->ignore($id),
             ],
 
             'telefone' => 'required|string|max:20',
