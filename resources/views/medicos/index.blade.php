@@ -34,7 +34,10 @@
                             {{ $medico->nome }}
                         </h3>
                         <p class="text-gray-600 text-sm">
-                            Especialidade: {{ $medico->especialidade->nome }}
+                            <strong>Especialidade:</strong> {{ $medico->especialidade->nome }}
+                        </p>
+                        <p class="text-gray-600 text-sm">
+                            <strong>CRM:</strong> {{ $medico->crm }}
                         </p>
                     </div>
 
