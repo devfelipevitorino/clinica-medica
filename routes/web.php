@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\MedicoController;
@@ -16,6 +17,8 @@ Route::get('/', function () {
         return redirect()->route('login');
     }
 });
+
+Route::view('/desenvolvimento', 'static.dev')->name('dev');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
@@ -45,6 +48,16 @@ Route::middleware('auth')->group(function () {
     Route::put('/medicos/{id}', [MedicoController::class, 'update'])->name('medicos.update');
     Route::delete('/medicos/{id}', [MedicoController::class, 'destroy']);
 });
+
+Route::middleware('auth')->group(function () {
+    Route::get('/consultas', [ConsultaController::class, 'index']);
+    Route::get('/consultas/nova', [ConsultaController::class, 'create']);
+    Route::post('/consultas', [ConsultaController::class, 'store']);
+    Route::get('/consultas/{id}/editar', [ConsultaController::class, 'edit']);
+    Route::put('/consultas/{id}', [ConsultaController::class, 'update'])->name('consultas.update');
+    Route::delete('/consultas/{id}', [ConsultaController::class, 'destroy'])->name('consultas.destroy');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/especialidades', [EspecialidadeController::class, 'index']);
