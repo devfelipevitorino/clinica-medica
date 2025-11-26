@@ -6,5 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Consulta extends Model
 {
-    //
+    protected $fillable = [
+        'paciente_id',
+        'medico_id',
+        'data',
+        'hora',
+        'observacoes'
+    ];
+
+    public function paciente()
+    {
+        return $this->belongsTo(Paciente::class);
+    }
+
+    public function medico()
+    {
+        return $this->belongsTo(Medico::class);
+    }
 }
