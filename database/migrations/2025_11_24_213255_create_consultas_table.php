@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('consultas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('paciente_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('medico_id')->constrained()->cascadeOnDelete();
-            $table->dateTime('data_hora');
-            $table->string('motivo')->nullable();
+            $table->unsignedBigInteger('paciente_id');
+            $table->unsignedBigInteger('medico_id');
+            $table->date('data');
+            $table->time('hora');
             $table->text('observacoes')->nullable();
-            $table->enum('status', ['agendada', 'realizada', 'cancelada'])->default('agendada');
             $table->timestamps();
+
+            $table->foreign('paciente_id')->references('id')->on('pacientes')->onDelete('cascade');
+            $table->foreign('medico_id')->references('id')->on('medicos')->onDelete('cascade');
         });
     }
 
