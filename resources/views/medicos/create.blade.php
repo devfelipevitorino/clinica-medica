@@ -38,7 +38,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CRM*</label>
-                        <input type="text" name="crm" value="{{ old('crm') }}"
+                        <input type="text" name="crm" value="{{ old('crm') }}" pattern="[0-9]*" inputmode="numeric"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
                             required>
                         @error('crm') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
@@ -54,7 +54,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Telefone*</label>
-                        <input type="text" name="telefone" value="{{ old('telefone') }}"
+                        <input type="text" name="telefone" value="{{ old('telefone') }}" pattern="[0-9]*" inputmode="numeric"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
                             required>
                         @error('telefone') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
@@ -137,7 +137,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
-                        <input type="text" name="cep" value="{{ old('cep') }}"
+                        <input type="text" name="cep" value="{{ old('cep') }}" pattern="[0-9]*" inputmode="numeric"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('cep') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
