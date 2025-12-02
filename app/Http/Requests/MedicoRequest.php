@@ -43,4 +43,30 @@ class MedicoRequest extends FormRequest
             'cep' => 'nullable|string|max:9',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'nome.required' => 'O nome é obrigatório.',
+            'nome.max'      => 'O nome não pode ter mais de 255 caracteres.',
+
+            'crm.required' => 'O crm é obrigatório.',
+            'crm.size'     => 'O crm deve ter exatamente 20 números (Sem pontuação).',
+
+            'email.email' => 'O email informado não é válido.',
+            'email.max'   => 'O email não pode ter mais de 255 caracteres.',
+
+            'telefone.size' => 'O telefone deve conter 11 números (DDD + número).',
+            'especialidade.require' => 'A especialidade é obrigatória.',
+
+            'rua.max'    => 'A rua não pode ter mais de 255 caracteres.',
+            'numero.max' => 'O número não pode ter mais de 50 caracteres.',
+            'bairro.max' => 'O bairro não pode ter mais de 255 caracteres.',
+            'cidade.max' => 'A cidade não pode ter mais de 255 caracteres.',
+            'estado.size' => 'O estado deve conter exatamente 2 letras (ex: PB, SP, RJ).',
+
+            'cep.min' => 'O CEP deve ter no mínimo 8 caracteres.',
+            'cep.max' => 'O CEP deve ter no máximo 9 caracteres.',
+        ];
+    }
 }

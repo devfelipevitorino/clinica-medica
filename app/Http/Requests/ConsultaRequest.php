@@ -16,9 +16,27 @@ class ConsultaRequest extends FormRequest
         return [
             'paciente_id' => 'required|exists:pacientes,id',
             'medico_id'   => 'required|exists:medicos,id',
-            'data'        => 'required|date',
+            'data'        => 'required|date|after_or_equal:today',
             'hora'        => 'required',
             'observacoes' => 'nullable|string'
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'paciente_id.required' => 'Selecione um paciente.',
+            'paciente_id.exists'   => 'O paciente informado não foi encontrado.',
+
+            'medico_id.required'   => 'Selecione um médico.',
+            'medico_id.exists'     => 'O médico informado não foi encontrado.',
+
+            'data.required'        => 'A data da consulta é obrigatória.',
+            'data.date'            => 'Informe uma data válida para a consulta.',
+            'data.after_or_equal'  => 'Informe uma data válida para a consulta.',
+
+            'hora.required'        => 'O horário da consulta é obrigatório.',
+
+            'observacoes.string'   => 'As observações devem conter apenas texto válido.',
         ];
     }
 }

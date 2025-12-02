@@ -28,7 +28,7 @@ class PacienteRequest extends FormRequest
 
             'email' => 'nullable|email|max:255',
             'telefone' => 'nullable|string|size:11',
-            'data_nascimento' => 'nullable|date',
+            'data_nascimento' => 'nullable|date|before_or_equal:today',
 
             'rua' => 'required|string|max:255',
             'numero' => 'required|string|max:50',
@@ -58,6 +58,7 @@ class PacienteRequest extends FormRequest
             'telefone.size' => 'O telefone deve conter 11 números (DDD + número).',
 
             'data_nascimento.date' => 'A data de nascimento deve ser uma data válida.',
+            'data_nascimento.before_or_equal' => 'A data de nascimento não é válida.',
 
             'rua.max'    => 'A rua não pode ter mais de 255 caracteres.',
             'numero.max' => 'O número não pode ter mais de 50 caracteres.',
