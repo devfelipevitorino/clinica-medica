@@ -39,13 +39,13 @@
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 font-medium mb-1">CPF*</laibel>
-                            <input type="text" name="cpf" value="{{ old('cpf') }}" maxlength="11"
-                                class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition"
-                                required>
-                            @error('cpf')
-                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                            @enderror
+                        <label class="block text-gray-700 font-medium mb-1 ">CPF*</label>
+                        <input type="text" name="cpf" value="{{ old('cpf') }}" maxlength="11" pattern="[0-9]*" inputmode="numeric"
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition"
+                            required>
+                        @error('cpf')
+                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
@@ -128,8 +128,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
-                        <input type="text" name="cep" value="{{ old('cep') }}" maxlength="9"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
+                        <input type="text" name="cep" value="{{ old('cep') }}" maxlength="8" pattern="[0-9]*" inputmode="numeric
+                            class=" w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cep')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror

@@ -40,7 +40,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CPF*</label>
-                        <input type="text" name="cpf" maxlength="11"
+                        <input type="text" name="cpf" maxlength="11" pattern="[0-9]*" inputmode="numeric"
                             value="{{ old('cpf', $paciente->cpf) }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition"
                             required>
@@ -62,7 +62,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Telefone*</label>
-                        <input type="text" name="telefone" maxlength="11"
+                        <input type="text" name="telefone" maxlength="11" pattern="[0-9]*" inputmode="numeric"
                             value="{{ old('telefone', $paciente->telefone) }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition"
                             required>
@@ -146,8 +146,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
-                        <input type="text" name="cep" maxlength="9"
-                            value="{{ old('cep', $paciente->endereco->cep ?? '') }}"
+                        <input type="text" name="cep" maxlength="9" pattern="[0-9]*" inputmode="numeric"
+                            value=" {{ old('cep', $paciente->endereco->cep ?? '') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cep')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
