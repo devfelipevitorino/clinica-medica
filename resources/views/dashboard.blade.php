@@ -36,7 +36,6 @@
                 </div>
 
                 <div class="bg-green-500 w-14 h-14 rounded-xl flex items-center justify-center">
-                    {{-- CALENDAR ICON --}}
                     <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
