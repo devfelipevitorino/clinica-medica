@@ -5,7 +5,7 @@
         <div>
             <div class="flex items-center gap-3 p-6 border-b">
                 <div class="bg-white-600 w-10 h-10 rounded-xl flex items-center justify-center">
-                    <img src="{{ asset('image/estetoscopio.png') }}" alt="Logo da Clínica" class="h10 w-10">
+                    <img src="{{ asset('image/logo.png') }}" alt="Logo da Clínica" class="h20 w-20">
                 </div>
 
                 <div>
