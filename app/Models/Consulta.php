@@ -11,7 +11,8 @@ class Consulta extends Model
         'medico_id',
         'data',
         'hora',
-        'observacoes'
+        'observacoes',
+        'status'
     ];
 
     public function paciente()
