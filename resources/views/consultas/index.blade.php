@@ -37,7 +37,6 @@
                             </p>
                         </div>
 
-                        <!-- AGRUPAMENTO AQUI -->
                         <div class="flex items-center gap-3">
 
                             <a href="/consultas/{{ $consulta->id }}/editar"
@@ -59,7 +58,6 @@
 
 
                     <div class="mt-4 space-y-1 text-sm text-gray-700">
-
                         <div class="flex items-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
@@ -73,15 +71,27 @@
                             </svg>
                             <span>{{ $consulta->hora }}</span>
                         </div>
-
                     </div>
 
-                    <div class="border-t mt-4 pt-3 text-xs text-gray-500">
-                        Última atualização:
-                        {{ $consulta->updated_at ? $consulta->updated_at->format('d M Y') : '—' }}
+                    <div class="border-t mt-4 pt-3 flex items-center justify-between text-xs">
+
+                        <span class="text-gray-500">
+                            Última atualização:
+                            {{ $consulta->updated_at ? $consulta->updated_at->format('d M Y') : '—' }}
+                        </span>
+
+                        <div>
+                            @if ($consulta->status === 'espera')
+                            <span class="badge rounded-pill bg-warning text-dark px-3 py-2">Em espera</span>
+                            @elseif ($consulta->status === 'em_atendimento')
+                            <span class="badge rounded-pill bg-primary px-3 py-2">Em atendimento</span>
+                            @elseif ($consulta->status === 'finalizado')
+                            <span class="badge rounded-pill bg-success px-3 py-2">Finalizado</span>
+                            @endif
+                        </div>
                     </div>
 
-                    <!-- Modal de exclusão -->
+
                     <div
                         x-show="openModal"
                         style="display:none;"

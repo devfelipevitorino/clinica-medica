@@ -86,6 +86,20 @@
 
                 </div>
 
+                {{-- Status --}}
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Status*</label>
+                    <select name="status"
+                        class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
+                        <option value="espera">Em espera</option>
+                        <option value="em_atendimento">Em atendimento</option>
+                        <option value="finalizado">Finalizado</option>
+                    </select>
+                    @error('paciente_id')
+                    <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 {{-- Observações --}}
                 <div class="mt-6">
                     <label class="block text-gray-700 font-medium mb-1">Observações (opcional)</label>

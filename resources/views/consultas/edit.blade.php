@@ -88,6 +88,27 @@
 
                 </div>
 
+                {{-- Status --}}
+                <div>
+                    <label class="block text-gray-700 font-medium mb-1">Status*</label>
+                    <select name="status"
+                        class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500"
+                        required>
+                        <option value="espera" {{ $consulta->status == 'espera' ? 'selected' : '' }}>
+                            Em espera
+                        </option>
+                        <option value="em_atendimento" {{ $consulta->status == 'em_atendimento' ? 'selected' : '' }}>
+                            Em atendimento
+                        </option>
+                        <option value="finalizado" {{ $consulta->status == 'finalizado' ? 'selected' : '' }}>
+                            Finalizado
+                        </option>
+                    </select>
+                    @error('consultas_id')
+                    <p class="text-red-600 text-sm">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 {{-- Observações --}}
                 <div class="mt-6">
                     <label class="block text-gray-700 font-medium mb-1">Observações</label>
