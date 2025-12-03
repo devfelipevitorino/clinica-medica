@@ -49,7 +49,7 @@
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Em Atendimento</p>
-                    <p class="text-3xl font-semibold text-gray-900 mt-1">Em breve</p>
+                    <p class="text-3xl font-semibold text-gray-900 mt-1">{{ $consultas->where('status', 'em_atendimento')->count() }}</p>
                 </div>
 
                 <div class="bg-orange-500 w-14 h-14 rounded-xl flex items-center justify-center">
@@ -93,6 +93,7 @@
                 <div class="space-y-4">
 
                     @forelse ($proximas_consultas as $consulta)
+                    @if($consulta->status !== 'finalizado')
                     <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
 
                         {{-- HORA --}}
@@ -113,10 +114,17 @@
                         </div>
 
                         <span class="text-xs text-gray-500">
-                            {{ $consulta->observacoes ?? 'Consulta' }}
+                            @if ($consulta->status === 'espera')
+                            <span class="badge rounded-pill bg-warning text-dark px-3 py-2">Em espera</span>
+                            @elseif ($consulta->status === 'em_atendimento')
+                            <span class="badge rounded-pill bg-primary px-3 py-2">Em atendimento</span>
+                            @elseif ($consulta->status === 'finalizado')
+                            <span class="badge rounded-pill bg-success px-3 py-2">Finalizado</span>
+                            @endif
                         </span>
 
                     </div>
+                    @endif
                     @empty
                     <p class="text-gray-500 text-sm text-center py-4">
                         Nenhuma consulta para o restante do dia.
@@ -131,7 +139,8 @@
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Atendimentos Recentes</h3>
 
                 <div class="space-y-4">
-                    @forelse ($consultas_anteriores as $consulta)
+                    @forelse ($consultas as $consulta)
+                    @if($consulta->status === 'finalizado')
                     <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
 
                         {{-- HORA --}}
@@ -152,10 +161,11 @@
                         </div>
 
                         <span class="text-xs text-gray-500">
-                            {{ $consulta->observacoes ?? 'Consulta' }}
+                            <span class="badge rounded-pill bg-success px-3 py-2">Finalizado</span>
                         </span>
 
                     </div>
+                    @endif
                     @empty
                     <p class="text-gray-500 text-sm text-center py-4">
                         Nenhuma consulta anterior.
