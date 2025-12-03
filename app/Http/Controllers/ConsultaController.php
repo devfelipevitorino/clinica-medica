@@ -26,7 +26,7 @@ class ConsultaController extends Controller
     public function store(ConsultaRequest $request)
     {
         Consulta::create(
-            $request->only(['paciente_id', 'medico_id', 'data', 'hora', 'observacao'])
+            $request->only(['paciente_id', 'medico_id', 'data', 'hora', 'observacoes', 'status'])
         );
 
         return redirect('/consultas')
@@ -47,7 +47,7 @@ class ConsultaController extends Controller
         $consulta = Consulta::findOrFail($id);
 
         $consulta->update(
-            $request->only(['paciente_id', 'medico_id', 'data', 'hora', 'observacao'])
+            $request->only(['paciente_id', 'medico_id', 'data', 'hora', 'observacao', 'status'])
         );
 
         return redirect('/consultas')
