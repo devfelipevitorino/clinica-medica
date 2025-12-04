@@ -21,8 +21,7 @@ class MedicoRequest extends FormRequest
 
             'crm' => [
                 'required',
-                'string',
-                'max:20',
+                'digits:6',
                 Rule::unique('medicos', 'crm')->ignore($id),
             ],
 
@@ -32,7 +31,8 @@ class MedicoRequest extends FormRequest
                 Rule::unique('medicos', 'email')->ignore($id),
             ],
 
-            'telefone' => 'required|string|max:20',
+            'telefone' => 'required|digits:11',
+
             'especialidade_id' => 'required|exists:especialidades,id',
 
             'rua' => 'required|string|max:255',
@@ -40,24 +40,29 @@ class MedicoRequest extends FormRequest
             'bairro' => 'required|string|max:255',
             'cidade' => 'required|string|max:255',
             'estado' => 'required|string|size:2',
-            'cep' => 'nullable|string|max:9',
+            'cep' => 'nullable|digits:8|max:9',
         ];
     }
 
     public function messages(): array
     {
         return [
+            'required' => 'Campo obrigatório',
+
             'nome.required' => 'O nome é obrigatório.',
             'nome.max'      => 'O nome não pode ter mais de 255 caracteres.',
 
             'crm.required' => 'O crm é obrigatório.',
-            'crm.size'     => 'O crm deve ter exatamente 20 números (Sem pontuação).',
+            'crm.digits'     => 'O crm deve ter no máximo 6 números (Sem pontuação).',
 
             'email.email' => 'O email informado não é válido.',
             'email.max'   => 'O email não pode ter mais de 255 caracteres.',
+            'email.required'   => 'O email é obrigatório.',
 
-            'telefone.size' => 'O telefone deve conter 11 números (DDD + número).',
-            'especialidade.require' => 'A especialidade é obrigatória.',
+            'telefone.digits' => 'O telefone deve conter 11 números (DDD + número).',
+            'telefone.required' => 'O telefone é obrigatório.',
+
+            'especialidade.required' => 'A especialidade é obrigatória.',
 
             'rua.max'    => 'A rua não pode ter mais de 255 caracteres.',
             'numero.max' => 'O número não pode ter mais de 50 caracteres.',
@@ -65,8 +70,7 @@ class MedicoRequest extends FormRequest
             'cidade.max' => 'A cidade não pode ter mais de 255 caracteres.',
             'estado.size' => 'O estado deve conter exatamente 2 letras (ex: PB, SP, RJ).',
 
-            'cep.min' => 'O CEP deve ter no mínimo 8 caracteres.',
-            'cep.max' => 'O CEP deve ter no máximo 9 caracteres.',
+            'cep.digits' => 'O CEP deve ter entre 8 e 9 números.',
         ];
     }
 }
