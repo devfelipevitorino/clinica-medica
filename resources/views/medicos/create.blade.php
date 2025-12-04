@@ -31,32 +31,28 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Nome*</label>
                         <input type="text" name="nome" value="{{ old('nome') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('nome') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CRM*</label>
-                        <input type="text" name="crm" value="{{ old('crm') }}" pattern="[0-9]*" inputmode="numeric"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                        <input type="text" name="crm" value="{{ old('crm') }}" 
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('crm') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Email*</label>
                         <input type="email" name="email" value="{{ old('email') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('email') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Telefone*</label>
-                        <input type="text" name="telefone" value="{{ old('telefone') }}" pattern="[0-9]*" inputmode="numeric"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                        <input type="text" name="telefone" value="{{ old('telefone') }}" 
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('telefone') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
@@ -65,8 +61,7 @@
 
                         <div class="flex items-center gap-2">
                             <select name="especialidade_id"
-                                class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                                required>
+                                class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                                 <option value="">Selecione</option>
                                 @foreach($especialidades as $especialidade)
                                 <option value="{{ $especialidade->id }}">
@@ -98,46 +93,41 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Rua*</label>
                         <input type="text" name="rua" value="{{ old('rua') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('rua') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Número*</label>
                         <input type="text" name="numero" value="{{ old('numero') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('numero') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Bairro*</label>
                         <input type="text" name="bairro" value="{{ old('bairro') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('bairro') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Cidade*</label>
                         <input type="text" name="cidade" value="{{ old('cidade') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('cidade') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Estado*</label>
                         <input type="text" maxlength="2" name="estado" value="{{ old('estado') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('estado') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
-                        <input type="text" name="cep" value="{{ old('cep') }}" pattern="[0-9]*" inputmode="numeric"
+                        <input type="text" name="cep" value="{{ old('cep') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
                         @error('cep') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
                     </div>
@@ -170,8 +160,7 @@
 
                 <label class="block mb-2 text-gray-700 font-medium">Nome*</label>
                 <input type="text" name="nome"
-                    class="w-full p-3 border rounded-xl bg-gray-50 mb-4"
-                    required>
+                    class="w-full p-3 border rounded-xl bg-gray-50 mb-4">
 
                 <label class="block mb-2 text-gray-700 font-medium">Descrição</label>
                 <textarea name="descricao"
