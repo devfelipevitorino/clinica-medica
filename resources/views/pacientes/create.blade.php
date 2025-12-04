@@ -31,8 +31,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Nome*</label>
                         <input type="text" name="nome" value="{{ old('nome') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('nome')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -40,9 +39,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1 ">CPF*</label>
-                        <input type="text" name="cpf" value="{{ old('cpf') }}" maxlength="11" pattern="[0-9]*" inputmode="numeric"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition"
-                            required>
+                        <input type="text" name="cpf" value="{{ old('cpf') }}" maxlength="11" 
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cpf')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -51,7 +49,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Email*</label>
                         <input type="email" name="email" value="{{ old('email') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('email')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -59,8 +57,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Telefone*</label>
-                        <input type="text" name="telefone" value="{{ old('telefone') }}" maxlength="11"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                        <input type="text" name="telefone" value="{{ old('telefone') }}"
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('telefone')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -69,7 +67,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Data de Nascimento*</label>
                         <input type="date" name="data_nascimento" value="{{ old('data_nascimento') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('data_nascimento')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -84,7 +82,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Rua*</label>
                         <input type="text" name="rua" value="{{ old('rua') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('rua')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -93,7 +91,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Número*</label>
                         <input type="text" name="numero" value="{{ old('numero') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('numero')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -102,7 +100,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Bairro*</label>
                         <input type="text" name="bairro" value="{{ old('bairro') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('bairro')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -111,7 +109,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Cidade*</label>
                         <input type="text" name="cidade" value="{{ old('cidade') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cidade')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -120,7 +118,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Estado*</label>
                         <input type="text" name="estado" value="{{ old('estado') }}" maxlength="2"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition" required>
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('estado')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -128,7 +126,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
-                        <input type="text" name="cep" value="{{ old('cep') }}" maxlength="8" pattern="[0-9]*" inputmode="numeric
+                        <input type="text" name="cep" value="{{ old('cep') }}"
                             class=" w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cep')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
