@@ -18,10 +18,7 @@
     </x-slot>
 
     <div class="p-6">
-
-        <div class="bg-white shadow-sm border rounded-2xl p-8 max-w-5xl mx-auto">
-
-            <h3 class="text-xl font-semibold text-gray-900 mb-6">Novo Médico</h3>
+        <div class="bg-white shadow-md rounded-xl p-6">
 
             <form action="/medicos" method="POST">
                 @csrf
@@ -31,42 +28,47 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Nome*</label>
                         <input type="text" name="nome" value="{{ old('nome') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('nome') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('nome')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CRM*</label>
-                        <input type="text" name="crm" value="{{ old('crm') }}" 
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('crm') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                        <input type="text" name="crm" value="{{ old('crm') }}"
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('crm')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label class="block text-gray-700 font-medium mb-1">Telefone*</label>
+                        <input type="text" name="telefone" value="{{ old('telefone') }}"
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('telefone')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Email*</label>
                         <input type="email" name="email" value="{{ old('email') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('email') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('email')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-1">Telefone*</label>
-                        <input type="text" name="telefone" value="{{ old('telefone') }}" 
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('telefone') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
-                    </div>
-
-                    <div>
+                    <div class="sm:col-span-2">
                         <label class="block text-gray-700 font-medium mb-1">Especialidade*</label>
-
                         <div class="flex items-center gap-2">
                             <select name="especialidade_id"
-                                class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
+                                class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
                                 <option value="">Selecione</option>
-                                @foreach($especialidades as $especialidade)
-                                <option value="{{ $especialidade->id }}">
-                                    {{ $especialidade->nome }}
-                                </option>
+                                @foreach($especialidades as $esp)
+                                <option value="{{ $esp->id }}">{{ $esp->nome }}</option>
                                 @endforeach
                             </select>
 
@@ -76,16 +78,13 @@
                                 +
                             </button>
                         </div>
-
                         @error('especialidade_id')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
 
-
                 </div>
 
-                {{-- Endereço --}}
                 <h3 class="text-lg font-semibold text-gray-900 mt-10 mb-4">Endereço*</h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -93,50 +92,61 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Rua*</label>
                         <input type="text" name="rua" value="{{ old('rua') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('rua') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('rua')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Número*</label>
                         <input type="text" name="numero" value="{{ old('numero') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('numero') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('numero')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Bairro*</label>
                         <input type="text" name="bairro" value="{{ old('bairro') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('bairro') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('bairro')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Cidade*</label>
                         <input type="text" name="cidade" value="{{ old('cidade') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('cidade') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('cidade')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Estado*</label>
-                        <input type="text" maxlength="2" name="estado" value="{{ old('estado') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('estado') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                        <input type="text" name="estado" maxlength="2" value="{{ old('estado') }}"
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('estado')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
                         <input type="text" name="cep" value="{{ old('cep') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-blue-500 transition">
-                        @error('cep') <p class="text-red-600 text-sm mt-1">{{ $message }}</p> @enderror
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-blue-500">
+                        @error('cep')
+                        <p class="text-red-600 text-sm">{{ $message }}</p>
+                        @enderror
                     </div>
 
                 </div>
 
                 <div class="flex justify-end mt-8">
-                    <button
-                        class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700 transition font-medium">
+                    <button class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700 transition font-medium">
                         Salvar Médico
                     </button>
                 </div>
@@ -144,13 +154,10 @@
             </form>
 
         </div>
-
     </div>
 
-    <!-- Modal -->
     <div id="modalEspecialidade" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-xl w-96">
-
             <h2 class="text-xl font-semibold mb-4">Nova Especialidade</h2>
 
             <form action="/especialidades" method="POST">
@@ -180,7 +187,6 @@
                 </div>
 
             </form>
-
         </div>
     </div>
 
