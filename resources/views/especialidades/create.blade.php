@@ -1,9 +1,20 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-900 leading-tight">
-            Nova Especialidade
-        </h2>
-        <p class="text-gray-600 mt-1">Cadastre uma nova especialidade médica</p>
+        <div class="flex items-center justify-between">
+            <div>
+                <h2 class="font-semibold text-2xl text-gray-900 leading-tight">
+                    Nova Especialidade
+                </h2>
+                <p class="text-gray-600 text-sm mt-1">
+                    Cadastre uma nova especialidade médica
+                </p>
+            </div>
+
+            <a href="/especialidades"
+                class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition">
+                Voltar
+            </a>
+        </div>
     </x-slot>
 
     <div class="p-6">

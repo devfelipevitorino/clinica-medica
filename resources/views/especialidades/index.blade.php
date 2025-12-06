@@ -61,7 +61,6 @@
                     </svg>
                 </div>
 
-                {{-- MODAL --}}
                 <div
                     x-show="openModal"
                     style="display: none;"
