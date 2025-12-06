@@ -91,7 +91,7 @@
 
                 <div class="space-y-4">
 
-                    @forelse ($proximas_consultas as $consulta)
+                    @forelse ($consultas as $consulta)
                     @if($consulta->status !== 'finalizado')
                     <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
 
