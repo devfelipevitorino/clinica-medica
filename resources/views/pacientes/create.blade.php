@@ -18,14 +18,12 @@
     </x-slot>
 
     <div class="p-6">
-
-        <div class="bg-white shadow-sm border rounded-2xl p-8 max-w-5xl mx-auto">
-
-            <h3 class="text-xl font-semibold text-gray-900 mb-6">Novo Paciente</h3>
+        <div class="bg-white shadow-md rounded-xl p-6">
 
             <form action="/pacientes" method="POST">
                 @csrf
 
+                {{-- DADOS PRINCIPAIS --}}
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
                     <div>
@@ -38,8 +36,8 @@
                     </div>
 
                     <div>
-                        <label class="block text-gray-700 font-medium mb-1 ">CPF*</label>
-                        <input type="text" name="cpf" value="{{ old('cpf') }}" maxlength="11" 
+                        <label class="block text-gray-700 font-medium mb-1">CPF*</label>
+                        <input type="text" name="cpf" value="{{ old('cpf') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cpf')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -75,6 +73,7 @@
 
                 </div>
 
+                {{-- ENDEREÇO --}}
                 <h3 class="text-lg font-semibold text-gray-900 mt-10 mb-4">Endereço*</h3>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -117,7 +116,7 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Estado*</label>
-                        <input type="text" name="estado" value="{{ old('estado') }}" maxlength="2"
+                        <input type="text" name="estado" maxlength="2" value="{{ old('estado') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('estado')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -127,7 +126,7 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
                         <input type="text" name="cep" value="{{ old('cep') }}"
-                            class=" w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
+                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cep')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -135,9 +134,9 @@
 
                 </div>
 
-                <div class="flex justify-end mt-8">
+                <div class="flex justify-end mt-6">
                     <button
-                        class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700 transition font-medium">
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700 transition">
                         Salvar Paciente
                     </button>
                 </div>
@@ -145,6 +144,5 @@
             </form>
 
         </div>
-
     </div>
 </x-app-layout>

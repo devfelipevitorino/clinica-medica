@@ -105,7 +105,6 @@
                     {{ $paciente->updated_at ? $paciente->updated_at->format('d M Y') : '—' }}
                 </div>
 
-                <!-- Modal excluir -->
                 <div
                     x-show="openModal"
                     style="display: none;"
