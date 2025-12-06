@@ -30,7 +30,7 @@ class PacienteRequest extends FormRequest
             'data_nascimento' => 'nullable|date|before_or_equal:today',
 
             'rua' => 'required|string|max:255',
-            'numero' => 'required|string|max:50',
+            'numero' => 'required|numeric',
             'bairro' => 'required|string|max:255',
             'cidade' => 'required|string|max:255',
             'estado' => 'required|string|size:2',
@@ -46,6 +46,7 @@ class PacienteRequest extends FormRequest
         return [
 
             'required' => 'Campo obrigatório',
+            'unique' => 'Campo não  é válido',
 
             'nome.required' => 'O nome é obrigatório.',
             'nome.max'      => 'O nome não pode ter mais de 255 caracteres.',
@@ -66,7 +67,7 @@ class PacienteRequest extends FormRequest
             'data_nascimento.required' => 'A data de nascimento é obrigatória.',
 
             'rua.max'    => 'A rua não pode ter mais de 255 caracteres.',
-            'numero.max' => 'O número não pode ter mais de 50 caracteres.',
+            'numero.numeric' => 'O valor precisa ser um número (caso não tenha adicionar 00).',
             'bairro.max' => 'O bairro não pode ter mais de 255 caracteres.',
             'cidade.max' => 'A cidade não pode ter mais de 255 caracteres.',
             'estado.size' => 'O estado deve conter exatamente 2 letras (ex: PB, SP, RJ).',

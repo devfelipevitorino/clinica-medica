@@ -28,7 +28,7 @@ class ConsultaRequest extends FormRequest
     }
     public function messages(): array
     {
-        return [
+        return  [
             'paciente_id.required' => 'Selecione um paciente.',
             'paciente_id.exists'   => 'O paciente informado não foi encontrado.',
 
