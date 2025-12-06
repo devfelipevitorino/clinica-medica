@@ -14,14 +14,11 @@ class ConsultaRequest extends FormRequest
     public function rules(): array
     {
 
-        $horaRule = $this->isMethod('post')
-            ? 'required|after:now' : 'required';
-
         return [
             'paciente_id' => 'required|exists:pacientes,id',
             'medico_id'   => 'required|exists:medicos,id',
             'data'        => 'required|date|after_or_equal:today',
-            'hora'        => $horaRule,
+            'hora'        => 'required',
             'observacoes' => 'nullable|string',
             'status'      => 'required'
         ];
@@ -40,7 +37,6 @@ class ConsultaRequest extends FormRequest
             'data.after_or_equal'  => 'Informe uma data válida para a consulta.',
 
             'hora.required'        => 'O horário da consulta é obrigatório.',
-            'hora.after'           => 'O horário da consulta não é válido.',
 
             'observacoes.string'   => 'As observações devem conter apenas texto válido.',
 
