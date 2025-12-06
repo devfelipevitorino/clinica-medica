@@ -13,10 +13,8 @@
 
     <div class="py-10 px-6 space-y-10">
 
-        {{-- GRID DE ESTATÍSTICAS --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-            {{-- CARD: Pacientes --}}
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Total de Pacientes</p>
@@ -34,7 +32,6 @@
                 </div>
             </div>
 
-            {{-- CARD: Consultas Hoje --}}
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Consultas Hoje</p>
@@ -51,7 +48,6 @@
                 </div>
             </div>
 
-            {{-- CARD: Em Atendimento --}}
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Em Atendimento</p>
@@ -68,7 +64,6 @@
                 </div>
             </div>
 
-            {{-- CARD: Comparecimento --}}
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
                     <p class="text-sm text-gray-600">Taxa de Comparecimento</p>
@@ -89,10 +84,8 @@
 
         </div>
 
-        {{-- GRID PRINCIPAL --}}
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-            {{-- PRÓXIMAS CONSULTAS --}}
             <div class="bg-white shadow-md rounded-xl p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Próximas Consultas</h3>
 
@@ -102,7 +95,6 @@
                     @if($consulta->status !== 'finalizado')
                     <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
 
-                        {{-- HORA --}}
                         <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded text-sm">
                             {{ substr($consulta->hora, 0, 5) }}
                         </span>
@@ -145,11 +137,9 @@
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Atendimentos Recentes</h3>
 
                 <div class="space-y-4">
-                    @forelse ($consultas as $consulta)
-                    @if($consulta->status === 'finalizado')
+                    @forelse ($consultas->where('status', 'finalizado') as $consulta)
                     <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
 
-                        {{-- HORA --}}
                         <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded text-sm">
                             {{ substr($consulta->hora, 0, 5) }}
                         </span>
@@ -159,7 +149,7 @@
                                 {{ $consulta->paciente->nome }}
                             </p>
                             <p class="text-xs text-gray-500">
-                                <strong>Dr(a).{{ $consulta->medico->nome }}</strong>
+                                <strong>Dr(a). {{ $consulta->medico->nome }}</strong>
                             </p>
                             <p class="text-xs text-gray-500">
                                 Data: {{ date('d/m/Y', strtotime($consulta->data)) }}
@@ -171,7 +161,6 @@
                         </span>
 
                     </div>
-                    @endif
                     @empty
                     <p class="text-gray-500 text-sm text-center py-4">
                         Nenhuma consulta anterior.
