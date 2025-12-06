@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PacienteRequest;
 use App\Models\Paciente;
+use App\Services\Paciente\PacienteServices;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
+
+    private $services;
+
+    public function __construct(PacienteServices $services)
+    {
+        $this->services = $services;
+    }
+
     public function index()
     {
-        $pacientes = Paciente::with('endereco')->get();
+        $pacientes = $this->services->index();
         return view('pacientes.index', compact('pacientes'));
     }
 
