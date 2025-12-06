@@ -26,7 +26,6 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-                    {{-- Paciente --}}
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Paciente*</label>
                         <select name="paciente_id"
@@ -44,7 +43,6 @@
                         @enderror
                     </div>
 
-                    {{-- Médico --}}
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Médico*</label>
                         <select name="medico_id"
@@ -62,7 +60,6 @@
                         @enderror
                     </div>
 
-                    {{-- Data --}}
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Data*</label>
                         <input type="date" name="data"
@@ -74,7 +71,6 @@
                         @enderror
                     </div>
 
-                    {{-- Hora --}}
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Hora*</label>
                         <input type="time" name="hora"
@@ -88,7 +84,6 @@
 
                 </div>
 
-                {{-- Status --}}
                 <div>
                     <label class="block text-gray-700 font-medium mb-1">Status*</label>
                     <select name="status"
@@ -109,7 +104,6 @@
                     @enderror
                 </div>
 
-                {{-- Observações --}}
                 <div class="mt-6">
                     <label class="block text-gray-700 font-medium mb-1">Observações</label>
                     <textarea name="observacoes" rows="3"
