@@ -23,6 +23,44 @@ class ConsultaRequest extends FormRequest
             'status'      => 'required'
         ];
     }
+
+    public function withValidator($validator)
+    {
+
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            return;
+        }
+
+        $validator->after(function ($validator) {
+
+            $data = $this->input('data');
+            $hora = $this->input('hora');
+
+            if (!$data || !$hora) {
+                return;
+            }
+
+            $dataHora = $data . ' ' . $hora;
+
+            try {
+                $consulta = \Carbon\Carbon::parse($dataHora);
+            } catch (\Exception $e) {
+                $validator->errors()->add('data', 'Data ou hora inválida.');
+                return;
+            }
+
+            $agora = \Carbon\Carbon::now();
+
+            if ($consulta->lessThanOrEqualTo($agora)) {
+                $validator->errors()->add(
+                    'data',
+                    'A consulta deve ser marcada para um horário futuro.'
+                );
+            }
+        });
+    }
+
+
     public function messages(): array
     {
         return  [
