@@ -22,13 +22,14 @@
                 </div>
 
                 <div class="bg-blue-500 w-14 h-14 rounded-xl flex items-center justify-center">
-                    {{-- USERS ICON --}}
-                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M18 20a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3
+                    <a href="/pacientes">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M18 20a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3
                                m9-11a3 3 0 1 1-6 0a3 3 0 0 1 6 0zm6 11a6 6 0 0 0-5-6m-8 0a6 6 0 0 0-5 6" />
-                    </svg>
+                        </svg>
+                    </a>
                 </div>
             </div>
 
@@ -55,7 +56,6 @@
                 </div>
 
                 <div class="bg-orange-500 w-14 h-14 rounded-xl flex items-center justify-center">
-                    {{-- CLOCK ICON --}}
                     <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -72,7 +72,6 @@
                 </div>
 
                 <div class="bg-purple-500 w-14 h-14 rounded-xl flex items-center justify-center">
-                    {{-- TRENDING UP ICON --}}
                     <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"

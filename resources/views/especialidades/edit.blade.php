@@ -28,8 +28,10 @@
                 <label class="block font-medium text-gray-700 mb-1">Nome</label>
                 <input type="text" name="nome"
                     value="{{ $especialidade->nome }}"
-                    class="w-full border-gray-300 rounded-lg shadow-sm"
-                    required>
+                    class="w-full border-gray-300 rounded-lg shadow-sm">
+                @error('nome')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                @enderror
             </div>
 
             <div class="mb-4">
