@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PacienteRequest;
-use App\Models\Paciente;
 use App\Services\Paciente\PacienteServices;
-use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
@@ -30,14 +28,7 @@ class PacienteController extends Controller
 
     public function store(PacienteRequest $request)
     {
-
-        $paciente = Paciente::create(
-            $request->only(['nome', 'cpf', 'email', 'telefone', 'data_nascimento'])
-        );
-
-        $paciente->endereco()->create(
-            $request->only(['rua', 'numero', 'bairro', 'cidade', 'estado', 'cep'])
-        );
+        $this->services->store($request);
 
         return redirect('/pacientes')
             ->with('success', 'Paciente criado com sucesso!');
@@ -45,31 +36,23 @@ class PacienteController extends Controller
 
     public function edit($id)
     {
-        $paciente = Paciente::with('endereco')->findOrFail($id);
+        $paciente = $this->services->edit($id);
 
         return view('pacientes.edit', compact('paciente'));
     }
 
     public function update(PacienteRequest $request, $id)
     {
-        $paciente = Paciente::with('endereco')->findOrFail($id);
-
-        $paciente->update(
-            $request->only(['nome', 'cpf', 'email', 'telefone', 'data_nascimento'])
-        );
-
-        $paciente->endereco->update(
-            $request->only(['rua', 'numero', 'bairro', 'cidade', 'estado', 'cep'])
-        );
+        $this->services->update($request, $id);
 
         return redirect('/pacientes')
             ->with('success', 'Paciente atualizado com sucesso!');
     }
 
+
     public function destroy($id)
     {
-        $paciente = Paciente::findOrFail($id);
-        $paciente->delete();
+        $this->services->destroy($id);
 
         return redirect('/pacientes')
             ->with('success', 'Paciente removido com sucesso!');

@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Especialidade;
-use Illuminate\Http\Request;
+use App\Http\Requests\EspecialidadeRequest;
+use App\Services\Especialidade\EspecialidadeServices;
 
 class EspecialidadeController extends Controller
 {
+    private $services;
+
+    public function __construct(EspecialidadeServices $services)
+    {
+        $this->services = $services;
+    }
+
     public function index()
     {
-        $especialidades = Especialidade::orderBy('nome')->get();
+        $especialidades = $this->services->index();
         return view('especialidades.index', compact('especialidades'));
     }
 
@@ -18,47 +25,37 @@ class EspecialidadeController extends Controller
         return view('especialidades.create');
     }
 
-    public function store(Request $request)
+    public function store(EspecialidadeRequest $request)
     {
-        $validated = $request->validate([
-            'nome' => 'required|string|unique:especialidades,nome',
-            'descricao' => 'nullable|string'
-        ]);
-
-        Especialidade::create($validated);
+        $this->services->store($request);
 
         if ($request->from_modal) {
             return redirect()->back()->with('success', 'Especialidade criada!');
         }
 
-        return redirect('/especialidades')->with('success', 'Especialidade cadastrada com sucesso!');
+        return redirect('/especialidades')
+            ->with('success', 'Especialidade cadastrada com sucesso!');
     }
-
 
     public function edit($id)
     {
-        $especialidade = Especialidade::findOrFail($id);
+        $especialidade = $this->services->edit($id);
         return view('especialidades.edit', compact('especialidade'));
     }
 
-    public function update(Request $request, $id)
+    public function update(EspecialidadeRequest $request, $id)
     {
-        $especialidade = Especialidade::findOrFail($id);
+        $this->services->update($request, $id);
 
-        $validated = $request->validate([
-            'nome' => 'required|string|unique:especialidades,nome,' . $id,
-            'descricao' => 'nullable|string'
-        ]);
-
-        $especialidade->update($validated);
-
-        return redirect('/especialidades')->with('success', 'Especialidade atualizada!');
+        return redirect('/especialidades')
+            ->with('success', 'Especialidade atualizada!');
     }
 
     public function destroy($id)
     {
-        Especialidade::findOrFail($id)->delete();
+        $this->services->destroy($id);
 
-        return redirect('/especialidades')->with('success', 'Especialidade removida!');
+        return redirect('/especialidades')
+            ->with('success', 'Especialidade removida!');
     }
 }

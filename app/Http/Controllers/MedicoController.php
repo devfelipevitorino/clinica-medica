@@ -3,34 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\MedicoRequest;
-use App\Models\Especialidade;
-use App\Models\Medico;
-use Illuminate\Http\Request;
+use App\Services\Medico\MedicoServices;
 
 class MedicoController extends Controller
 {
+    private $services;
+
+    public function __construct(MedicoServices $services)
+    {
+        $this->services = $services;
+    }
+
     public function index()
     {
-        $medicos = Medico::with('endereco')->get();
+        $medicos = $this->services->index();
         return view('medicos.index', compact('medicos'));
     }
 
     public function create()
     {
-        $especialidades = Especialidade::all();
+        $especialidades = $this->services->getEspecialidades();
         return view('medicos.create', compact('especialidades'));
     }
 
     public function store(MedicoRequest $request)
     {
-
-        $medico = Medico::create(
-            $request->only(['nome', 'crm', 'telefone', 'email', 'especialidade_id'])
-        );
-
-        $medico->endereco()->create(
-            $request->only(['rua', 'numero', 'bairro', 'cidade', 'estado', 'cep'])
-        );
+        $this->services->store($request);
 
         return redirect('/medicos')
             ->with('success', 'Medico criado com sucesso!');
@@ -38,23 +36,15 @@ class MedicoController extends Controller
 
     public function edit($id)
     {
-        $medico = Medico::with('endereco')->findOrFail($id);
-        $especialidades = Especialidade::all();
+        $medico = $this->services->edit($id);
+        $especialidades = $this->services->getEspecialidades();
 
         return view('medicos.edit', compact('medico', 'especialidades'));
     }
 
     public function update(MedicoRequest $request, $id)
     {
-        $medico = Medico::with('endereco')->findOrFail($id);
-
-        $medico->update(
-            $request->only(['nome', 'crm', 'telefone', 'email', 'especialidade_id'])
-        );
-
-        $medico->endereco->update(
-            $request->only(['rua', 'numero', 'bairro', 'cidade', 'estado', 'cep'])
-        );
+        $this->services->update($request, $id);
 
         return redirect('/medicos')
             ->with('success', 'Medico atualizado com sucesso!');
@@ -62,8 +52,7 @@ class MedicoController extends Controller
 
     public function destroy($id)
     {
-        $medico = Medico::findOrFail($id);
-        $medico->delete();
+        $this->services->destroy($id);
 
         return redirect('/medicos')
             ->with('success', 'Medico removido com sucesso!');

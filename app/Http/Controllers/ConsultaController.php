@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Consulta;
+use App\Http\Requests\ConsultaRequest;
+use App\Services\Consulta\ConsultaServices;
 use App\Models\Paciente;
 use App\Models\Medico;
-use App\Http\Requests\ConsultaRequest;
 
 class ConsultaController extends Controller
 {
+    private $services;
+
+    public function __construct(ConsultaServices $services)
+    {
+        $this->services = $services;
+    }
+
     public function index()
     {
-        $consultas = Consulta::with(['paciente', 'medico'])->get();
+        $consultas = $this->services->index();
         return view('consultas.index', compact('consultas'));
     }
 
@@ -25,9 +32,7 @@ class ConsultaController extends Controller
 
     public function store(ConsultaRequest $request)
     {
-        Consulta::create(
-            $request->only(['paciente_id', 'medico_id', 'data', 'hora', 'observacoes', 'status'])
-        );
+        $this->services->store($request);
 
         return redirect('/consultas')
             ->with('success', 'Consulta criada com sucesso!');
@@ -35,7 +40,7 @@ class ConsultaController extends Controller
 
     public function edit($id)
     {
-        $consulta = Consulta::findOrFail($id);
+        $consulta = $this->services->edit($id);
         $pacientes = Paciente::all();
         $medicos   = Medico::all();
 
@@ -44,11 +49,7 @@ class ConsultaController extends Controller
 
     public function update(ConsultaRequest $request, $id)
     {
-        $consulta = Consulta::findOrFail($id);
-
-        $consulta->update(
-            $request->only(['paciente_id', 'medico_id', 'data', 'hora', 'observacao', 'status'])
-        );
+        $this->services->update($request, $id);
 
         return redirect('/consultas')
             ->with('success', 'Consulta atualizada com sucesso!');
@@ -56,8 +57,7 @@ class ConsultaController extends Controller
 
     public function destroy($id)
     {
-        $consulta = Consulta::findOrFail($id);
-        $consulta->delete();
+        $this->services->destroy($id);
 
         return redirect('/consultas')
             ->with('success', 'Consulta removida com sucesso!');
