@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ConsultaRequest extends FormRequest
@@ -43,13 +44,13 @@ class ConsultaRequest extends FormRequest
             $dataHora = $data . ' ' . $hora;
 
             try {
-                $consulta = \Carbon\Carbon::parse($dataHora);
+                $consulta = Carbon::parse($dataHora);
             } catch (\Exception $e) {
                 $validator->errors()->add('data', 'Data ou hora inválida.');
                 return;
             }
 
-            $agora = \Carbon\Carbon::now();
+            $agora = Carbon::now();
 
             if ($consulta->lessThanOrEqualTo($agora)) {
                 $validator->errors()->add(
