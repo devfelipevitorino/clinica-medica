@@ -3,7 +3,7 @@
 ## 📌 Visão Geral
 O **Sistema de Clínica Médica** é uma aplicação web fullstack desenvolvida em **Laravel**, criada para gerenciar pacientes, médicos, consultas e especialidades. O projeto utiliza o padrão **Controller → Service → Repository**.
 
-A aplicação inclui CRUD completo para pacientes, médicos, especialidades, endereeços, gerenciamento de consultas e validações.
+A aplicação inclui CRUD completo para pacientes, médicos, especialidades, endereços, gerenciamento de consultas e validações.
 
 ---
 
