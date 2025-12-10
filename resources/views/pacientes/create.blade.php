@@ -80,7 +80,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Rua*</label>
-                        <input type="text" name="rua" value="{{ old('rua') }}"
+                        <input type="text" name="rua" id="rua"
+                            value="{{ old('rua', $paciente->endereco->rua ?? '') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('rua')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -89,7 +90,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Número*</label>
-                        <input type="text" name="numero" value="{{ old('numero') }}"
+                        <input type="text" name="numero" id="numero"
+                            value="{{ old('numero', $paciente->endereco->numero ?? '') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('numero')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -98,7 +100,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Bairro*</label>
-                        <input type="text" name="bairro" value="{{ old('bairro') }}"
+                        <input type="text" name="bairro" id="bairro"
+                            value="{{ old('bairro', $paciente->endereco->bairro ?? '') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('bairro')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -107,7 +110,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Cidade*</label>
-                        <input type="text" name="cidade" value="{{ old('cidade') }}"
+                        <input type="text" name="cidade" id="cidade"
+                            value="{{ old('cidade', $paciente->endereco->cidade ?? '') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('cidade')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -116,7 +120,8 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Estado*</label>
-                        <input type="text" name="estado" maxlength="2" value="{{ old('estado') }}"
+                        <input type="text" name="estado" id="uf" maxlength="2"
+                            value="{{ old('estado', $paciente->endereco->estado ?? '') }}"
                             class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
                         @error('estado')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -125,8 +130,29 @@
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">CEP</label>
-                        <input type="text" name="cep" value="{{ old('cep') }}"
-                            class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
+
+                        <div class="flex gap-2">
+                            <input type="text" name="cep" id="cep"
+                                value="{{ old('cep', $paciente->endereco->cep ?? '') }}"
+                                class="w-full p-3 border rounded-xl bg-gray-50 focus:bg-white focus:ring-2 focus:ring-blue-500 transition">
+
+                            <button type="button" id="btnBuscarCep"
+                                class="relative flex items-center gap-1 px-3 py-1.5
+           bg-blue-600 text-white text-sm rounded-lg font-medium
+           shadow hover:shadow-md active:scale-95
+           transition duration-150">
+                                <svg id="iconSearch" xmlns="http://www.w3.org/2000/svg"
+                                    class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
+                                </svg>
+                                <span id="btnText">Buscar</span>
+                                <span id="btnLoader"
+                                    class="hidden w-4 h-4 border-2 border-white border-t-transparent
+               rounded-full animate-spin"></span>
+                            </button>
+
+                        </div>
                         @error('cep')
                         <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -146,3 +172,5 @@
         </div>
     </div>
 </x-app-layout>
+
+<script src="{{ asset('js/buscarCep.js') }}"></script>
