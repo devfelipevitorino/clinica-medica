@@ -35,35 +35,43 @@ A aplicação inclui CRUD completo para pacientes, médicos, especialidades, end
 ```bash
 git clone https://github.com/devfelipevitorino/clinica-medica.git
 cd clinica_medica
+```
 
 ### 2️⃣ Instalar dependências do backend
 ```bash
 composer install
+```
 
 ### 3️⃣ Instalar dependências do frontend
 ```bash
 npm install
 npm run build  # ou 'npm run dev' durante o desenvolvimento
+```
 
 ### 4️⃣ Copiar variáveis de ambiente
 ```bash
 cp .env.example .env
+```
 
 ### 5️⃣ Gerar key da aplicação
 ```bash
 php artisan key:generate
+```
 
 ### 6️⃣ Configurar banco de dados no .env
 ```bash
 DB_DATABASE=clinica_medica
 DB_USERNAME=seu_usuario
 DB_PASSWORD=sua_senha
+```
 
 ### 7️⃣ Rodar migrations e seeders
 ```bash
 php artisan migrate --seed
+```
 
 ### 8️⃣ Iniciar o servidor
 ```bash
 php artisan serve
 npm run dev
+```
