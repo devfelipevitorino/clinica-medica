@@ -12,8 +12,18 @@ class ConsultaRequest extends FormRequest
         return true;
     }
 
-    public function rules(): array
+    public function rules()
     {
+        if ($this->isMethod('put') || $this->isMethod('patch')) {
+            return [
+                'paciente_id' => 'required|exists:pacientes,id',
+                'medico_id'   => 'required|exists:medicos,id',
+                'observacoes' => 'nullable|string',
+                'data'        => 'required',
+                'hora'        => 'required',
+                'status'      => 'required'
+            ];
+        }
 
         return [
             'paciente_id' => 'required|exists:pacientes,id',
