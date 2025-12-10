@@ -83,15 +83,51 @@
 
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
+            <!-- Em Atendimento -->
+            <div class="bg-white shadow-md rounded-xl p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Em Atendimento</h3>
+
+                <div class="space-y-4">
+                    @forelse ($em_atendimento as $consulta)
+                    <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
+
+                        <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded text-sm">
+                            {{ substr($consulta->hora, 0, 5) }}
+                        </span>
+
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-gray-900 truncate">
+                                {{ $consulta->paciente->nome }}
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                <strong>Dr(a). {{ $consulta->medico->nome }}</strong>
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                Data: {{ date('d/m/Y', strtotime($consulta->data)) }}
+                            </p>
+                        </div>
+
+                        <span class="badge rounded-pill bg-primary px-3 py-2">
+                            Em atendimento
+                        </span>
+
+                    </div>
+                    @empty
+                    <p class="text-gray-500 text-sm text-center py-4">
+                        Nenhum atendimento em andamento.
+                    </p>
+                    @endforelse
+                </div>
+            </div>
+
+            <!-- Próximas Consultas -->
             <div class="bg-white shadow-md rounded-xl p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Próximas Consultas</h3>
 
                 <div class="space-y-4">
-
-                    @forelse ($consultas as $consulta)
-                    @if($consulta->status !== 'finalizado')
+                    @forelse ($proximas_consultas as $consulta)
                     <div class="flex items-center gap-4 p-3 bg-gray-50 rounded-lg">
 
                         <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded text-sm">
@@ -121,17 +157,15 @@
                         </span>
 
                     </div>
-                    @endif
                     @empty
                     <p class="text-gray-500 text-sm text-center py-4">
                         Nenhuma consulta para o restante do dia.
                     </p>
                     @endforelse
-
                 </div>
-
             </div>
 
+            <!-- Atendimentos Recentes -->
             <div class="bg-white shadow-md rounded-xl p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Atendimentos Recentes</h3>
 
@@ -167,7 +201,6 @@
                     @endforelse
                 </div>
             </div>
-
         </div>
 
     </div>
