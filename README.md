@@ -1,13 +1,13 @@
 # Sistema de Clínica Médica
 
-## 📌 Visão Geral
+## Visão Geral
 O **Sistema de Clínica Médica** é uma aplicação web fullstack desenvolvida em **Laravel**, criada para gerenciar pacientes, médicos, consultas e especialidades. O projeto utiliza o padrão **Controller → Service → Repository**.
 
 A aplicação inclui CRUD completo para pacientes, médicos, especialidades, endereços, gerenciamento de consultas e validações.
 
 ---
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 - **PHP 8**
 - **Laravel 12**
 - **Blade** 
@@ -19,7 +19,7 @@ A aplicação inclui CRUD completo para pacientes, médicos, especialidades, end
 
 ---
 
-## 🛠️ Funcionalidades
+## Funcionalidades
 - Cadastro e gerenciamento de **Pacientes**
 - Cadastro e gerenciamento de **Médicos**
 - Associação entre Paciente/Médico e **Endereços**
@@ -29,7 +29,13 @@ A aplicação inclui CRUD completo para pacientes, médicos, especialidades, end
 
 ---
 
-## 📦 Como Instalar
+## Requisitos para instalação 
+- PHP 8.2+
+- Composer
+- Node.js
+- NPM 
+
+## Como Instalar
 
 ### 1️⃣ Clonar o repositório
 ```bash
@@ -45,7 +51,7 @@ composer install
 ### 3️⃣ Instalar dependências do frontend
 ```bash
 npm install
-npm run build  # ou 'npm run dev' durante o desenvolvimento
+npm run build  
 ```
 
 ### 4️⃣ Copiar variáveis de ambiente
