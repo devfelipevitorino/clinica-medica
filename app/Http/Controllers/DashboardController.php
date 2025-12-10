@@ -16,16 +16,25 @@ class DashboardController extends Controller
         $hoje = now()->toDateString();
 
         $proximas_consultas = Consulta::with(['paciente', 'medico'])
-            ->where('data', $hoje)
+            ->where('status', 'espera')
             ->orderBy('hora')
+            ->limit(5)
             ->get();
 
 
         $consultas_anteriores = Consulta::with(['paciente', 'medico'])
-            ->where('data', '<', $hoje)
+            ->where('status', 'finalizado')
             ->orderBy('hora')
+            ->limit(5)
             ->get();
 
-        return view('dashboard', compact('pacientes', 'consultas', 'proximas_consultas', 'consultas_anteriores'));
+        $em_atendimento = Consulta::with(['paciente', 'medico'])
+            ->where('status', 'em_atendimento')
+            ->orderBy('data')
+            ->orderBy('hora')
+            ->limit(5)
+            ->get();
+
+        return view('dashboard', compact('pacientes', 'consultas', 'proximas_consultas', 'consultas_anteriores', 'em_atendimento'));
     }
 }
