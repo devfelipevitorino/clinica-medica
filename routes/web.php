@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/consultas/{id}/editar', [ConsultaController::class, 'edit']);
     Route::put('/consultas/{id}', [ConsultaController::class, 'update'])->name('consultas.update');
     Route::delete('/consultas/{id}', [ConsultaController::class, 'destroy'])->name('consultas.destroy');
+    Route::get('/consultas/hoje', [ConsultaController::class, 'consultasDoDia'])->name('consultas.hoje');
 });
 
 
