@@ -62,4 +62,11 @@ class ConsultaController extends Controller
         return redirect('/consultas')
             ->with('success', 'Consulta removida com sucesso!');
     }
+
+    public function consultasDoDia()
+    {
+        $consultas = $this->services->buscaConsultasDoDia();
+
+        return view('consultas.listagemConsultasDia', compact('consultas'));
+    }
 }

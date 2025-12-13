@@ -46,4 +46,13 @@ class ConsultaRepositories
     {
         $consulta->delete();
     }
+
+    public function buscaConsultasDoDia()
+    {
+        $hoje = now()->toDateString();
+
+        return $this->model
+            ->where('data', $hoje)
+            ->get();
+    }
 }

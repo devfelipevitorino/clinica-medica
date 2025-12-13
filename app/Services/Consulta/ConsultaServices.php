@@ -45,4 +45,10 @@ class ConsultaServices
 
         return true;
     }
+
+    public function buscaConsultasDoDia()
+    {
+        $consultas = $this->repository->buscaConsultasDoDia();
+        return $consultas;
+    }
 }
