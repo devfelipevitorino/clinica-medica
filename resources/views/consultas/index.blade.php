@@ -44,7 +44,7 @@
 
                         <div>
 
-                            <h3 class="text-lg font-semibold text-blue-900">
+                            <h3 class="text-lg font-semibold text-black-900">
                                 {{ $consulta->paciente->nome }}
                             </h3>
                             <p class="text-gray-600 text-sm">

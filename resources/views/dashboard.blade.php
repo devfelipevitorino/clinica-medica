@@ -35,17 +35,19 @@
 
             <div class="p-6 bg-white shadow-md rounded-xl flex items-start justify-between">
                 <div>
-                    <p class="text-sm text-gray-600">Consultas Hoje</p>
+                    <p class="text-sm text-gray-600">Agendamentos do dia</p>
                     <p class="text-3xl font-semibold text-gray-900 mt-1">{{ $consultas->where('data', now()->toDateString())->count() }}</p>
                 </div>
 
                 <div class="bg-green-500 w-14 h-14 rounded-xl flex items-center justify-center">
-                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.75 3v2.25M17.25 3v2.25M3 8.25h18M4.5 7.5h15
+                    <a href="/consultas/hoje">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 3v2.25M17.25 3v2.25M3 8.25h18M4.5 7.5h15
                                c.6 0 1.125.45 1.125 1.125V19.5A1.5 1.5 0 0 1 19.5 21h-15A1.5 1.5 0 0 1 3 19.5V8.625C3 7.95 3.45 7.5 4.5 7.5z" />
-                    </svg>
+                        </svg>
+                    </a>
                 </div>
             </div>
 
