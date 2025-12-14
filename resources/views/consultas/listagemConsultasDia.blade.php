@@ -136,16 +136,22 @@
         </div>
 
         @else
+        <div class="col-span-1 md:col-span-2">
+            <div class="bg-white border rounded-2xl shadow p-10 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-gray-400" fill="none"
+                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.362 5.214A5.25 5.25 0 0 0 6.75 9v.75M3 3l18 18M12 19.5a7.5 7.5 0 0 1-7.47-6.75c-.014-.189.135-.345.327-.345h14.286c.192 0 .34.156.327.345A7.5 7.5 0 0 1 12 19.5Z" />
+                </svg>
 
-        <div class="bg-white border rounded-2xl shadow p-10 text-center">
-            <h3 class="text-lg font-semibold text-gray-700">
-                Nenhuma consulta para hoje
-            </h3>
-            <p class="text-gray-500 mt-1">
-                Não há consultas agendadas para a data atual.
-            </p>
+                <h3 class="text-lg font-semibold text-gray-700 mt-4">
+                    Nenhuma consulta para hoje
+                </h3>
+                <p class="text-gray-500 mt-1">
+                    Não há consultas agendadas para a data atual.
+                </p>
+            </div>
         </div>
-
         @endif
 
     </div>
