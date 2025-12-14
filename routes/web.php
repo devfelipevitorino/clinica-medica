@@ -6,6 +6,7 @@ use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RelatorioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -66,6 +67,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/especialidades/{id}/editar', [EspecialidadeController::class, 'edit'])->name('especialidades.edit');
     Route::put('/especialidades/{id}', [EspecialidadeController::class, 'update'])->name('especialidades.update');
     Route::delete('/especialidades/{id}', [EspecialidadeController::class, 'destroy'])->name('especialidades.destroy');
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/relatorios', [RelatorioController::class, 'index']);
 });
 
 require __DIR__ . '/auth.php';
