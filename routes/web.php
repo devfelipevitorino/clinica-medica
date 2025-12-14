@@ -6,8 +6,7 @@ use App\Http\Controllers\EspecialidadeController;
 use App\Http\Controllers\MedicoController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Especialidade;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -68,6 +67,5 @@ Route::middleware('auth')->group(function () {
     Route::put('/especialidades/{id}', [EspecialidadeController::class, 'update'])->name('especialidades.update');
     Route::delete('/especialidades/{id}', [EspecialidadeController::class, 'destroy'])->name('especialidades.destroy');
 });
-
 
 require __DIR__ . '/auth.php';
