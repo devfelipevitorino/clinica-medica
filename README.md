@@ -10,10 +10,7 @@ A aplicação inclui CRUD completo para pacientes, médicos, especialidades, end
 ## Tecnologias Utilizadas
 - **PHP 8**
 - **Laravel 12**
-- **Blade** 
-- **Bootstrap**
 - **MySQL**
-- **Eloquent ORM**
 - **Composer**
 - **Node.js & NPM**
 
