@@ -15,7 +15,7 @@ class PacienteRepositories
 
     public function index()
     {
-        return $this->model->with('endereco')->get();
+        return $this->model->with('endereco')->latest()->get();
     }
 
     public function findForEdit($id)

@@ -16,7 +16,7 @@ class MedicoRepositories
 
     public function index()
     {
-        return $this->model->with('endereco')->get();
+        return $this->model->with('endereco')->latest()->get();
     }
 
     public function getEspecialidades()

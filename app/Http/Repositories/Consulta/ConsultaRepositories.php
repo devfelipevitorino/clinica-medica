@@ -15,7 +15,7 @@ class ConsultaRepositories
 
     public function index()
     {
-        return $this->model->with(['paciente', 'medico'])->get();
+        return $this->model->with(['paciente', 'medico'])->latest()->get();
     }
 
     public function findForEdit($id)
