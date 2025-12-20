@@ -72,6 +72,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/relatorios', [RelatorioController::class, 'index']);
+    Route::get('/relatorios/historico', [RelatorioController::class, 'buscaConsultasFinalizadas']);
 });
 
 require __DIR__ . '/auth.php';

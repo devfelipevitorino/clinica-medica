@@ -68,7 +68,7 @@
                             Consultas do Dia
                         </a>
 
-                        <a href="#"
+                        <a href="/relatorios/historico"
                             class="flex items-center px-3 py-2 rounded-lg text-gray-700 hover:bg-gray-100 hover:text-gray-900 transition">
                             Histórico de Consultas
                         </a>

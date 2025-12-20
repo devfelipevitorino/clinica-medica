@@ -22,4 +22,10 @@ class RelatorioController extends Controller
         $consultas = $this->consultasServices->index();
         return view('relatorios.index', compact('pacientes', 'consultas'));
     }
+
+    public function buscaConsultasFinalizadas()
+    {
+        $consultas = $this->consultasServices->buscaConsultasFinalizadas();
+        return view('relatorios.historicoConsultas', compact('consultas'));
+    }
 }
