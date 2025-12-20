@@ -46,11 +46,6 @@
                     </div>
 
                 </div>
-
-                <a href="#"
-                    class="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
-                    Ver relatório
-                </a>
             </div>
 
             <div class="bg-white border shadow-sm rounded-2xl p-6 flex flex-col justify-between">
@@ -79,11 +74,6 @@
                         </a>
                     </div>
                 </div>
-
-                <a href="#"
-                    class="mt-6 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
-                    Ver relatório
-                </a>
             </div>
         </div>
     </div>
