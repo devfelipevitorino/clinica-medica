@@ -51,4 +51,10 @@ class ConsultaServices
         $consultas = $this->repository->buscaConsultasDoDia();
         return $consultas;
     }
+
+    public function buscaConsultasFinalizadas()
+    {
+        $consultas = $this->repository->buscaConsultasFinalizadas();
+        return $consultas;
+    }
 }

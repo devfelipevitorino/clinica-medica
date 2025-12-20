@@ -55,4 +55,11 @@ class ConsultaRepositories
             ->where('data', $hoje)
             ->get();
     }
+
+    public function buscaConsultasFinalizadas()
+    {
+        return $this->model
+            ->where('status', 'finalizado')
+            ->get();
+    }
 }
