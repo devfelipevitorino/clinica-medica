@@ -161,9 +161,7 @@
 
                         </div>
 
-                        @error('cep')
-                        <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
-                        @enderror
+                        <p id="cepErro" class="text-red-600 text-sm mt-1 hidden"></p>
                     </div>
 
 
