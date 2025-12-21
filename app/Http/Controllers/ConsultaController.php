@@ -6,14 +6,20 @@ use App\Http\Requests\ConsultaRequest;
 use App\Services\Consulta\ConsultaServices;
 use App\Models\Paciente;
 use App\Models\Medico;
+use App\Services\Medico\MedicoServices;
+use App\Services\Paciente\PacienteServices;
 
 class ConsultaController extends Controller
 {
     private $services;
+    private $pacienteServices;
+    private $medicoServices;
 
-    public function __construct(ConsultaServices $services)
+    public function __construct(ConsultaServices $services, PacienteServices $pacienteServices, MedicoServices $medicoServices)
     {
         $this->services = $services;
+        $this->pacienteServices = $pacienteServices;
+        $this->medicoServices = $medicoServices;
     }
 
     public function index()
@@ -24,8 +30,8 @@ class ConsultaController extends Controller
 
     public function create()
     {
-        $pacientes = Paciente::all();
-        $medicos   = Medico::all();
+        $pacientes = $this->pacienteServices->index();
+        $medicos   = $this->medicoServices->index();
 
         return view('consultas.create', compact('pacientes', 'medicos'));
     }
@@ -41,8 +47,8 @@ class ConsultaController extends Controller
     public function edit($id)
     {
         $consulta = $this->services->edit($id);
-        $pacientes = Paciente::all();
-        $medicos   = Medico::all();
+        $pacientes = $this->pacienteServices->index();
+        $medicos   = $this->medicoServices->index();
 
         return view('consultas.edit', compact('consulta', 'pacientes', 'medicos'));
     }
