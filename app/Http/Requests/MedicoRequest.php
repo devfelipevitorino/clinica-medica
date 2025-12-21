@@ -21,7 +21,7 @@ class MedicoRequest extends FormRequest
 
             'crm' => [
                 'required',
-                'digits_between:3,6', // CRM só números
+                'digits_between:3,6', 
                 Rule::unique('medicos', 'crm')->ignore($id),
             ],
 
