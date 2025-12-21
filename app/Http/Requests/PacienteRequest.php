@@ -38,9 +38,6 @@ class PacienteRequest extends FormRequest
         ];
     }
 
-    /**
-     * Mensagens de erro personalizadas em português.
-     */
     public function messages(): array
     {
         return [
